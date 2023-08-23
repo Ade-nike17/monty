@@ -5,12 +5,15 @@
 
 void execute_pint(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL)
+	stack_t *temp;
+	temp = *stack;
+
+	if (temp == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
-	(*stack) = (*stack)->next;
+	printf("%d\n", temp->n);
+	temp = temp->next;
 }
