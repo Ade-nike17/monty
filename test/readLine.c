@@ -16,6 +16,7 @@ void read_line(FILE *file, stack_t **stack)
 	 {
 		 {"push", push_to_stack},
 		 {"pall", pall_stack},
+		 {"pop",  pop_from_stack},
 		 {NULL, NULL}
 	 };
 
@@ -28,7 +29,8 @@ void read_line(FILE *file, stack_t **stack)
 		{
             int i = 0;
             while (instructions[i].opcode != NULL) {
-                if (strcmp(command, instructions[i].opcode) == 0) {
+                if (strcmp(command, instructions[i].opcode) == 0) 
+		{
                     instructions[i].f(stack, line_number);
                     break;
                 }

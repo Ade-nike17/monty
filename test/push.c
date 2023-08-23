@@ -6,9 +6,9 @@
  * push_to_stack - inserts value into list
  * @stack: linked list
  * @value:second parameter
- *
+ */
 
-void push_to_stack(stack_t **stack, int value)
+void push_to(stack_t **stack, int value)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -27,7 +27,7 @@ void push_to_stack(stack_t **stack, int value)
 	}
 	*stack = new_node;
 }
-*/
+
 
 
 /**
@@ -38,7 +38,8 @@ void push_to_stack(stack_t **stack, int value)
  */
 void push_to_stack(stack_t **stack, unsigned int line_number)
 {
-    int value = 0;    
+	push_to(&stack,value);
+/*    int value = 0;    
      
     stack_t *new_node;
 
@@ -61,5 +62,6 @@ void push_to_stack(stack_t **stack, unsigned int line_number)
         {
                 (*stack)->prev = new_node;
         }
-        *stack = new_node;
+        *stack = new_node;*/
+
 }
