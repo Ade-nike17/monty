@@ -1,17 +1,21 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
 
-/**
- * pop_from_stack - Pops the value at the top of the stack
- * @stack: Pointer to the top of the stack
- */
-void pop_from_stack(stack_t **stack)
+void execute_pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current;
 
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	current = *stack;
+	*stack = (*stack)->next;
 	if (*stack != NULL)
 	{
-	stack_t *temp = *stack;
-	*stack = (*stack)->next;
-	free(temp);
+		(*stack)->prev = NULL;
 	}
+	free(current);
 }
