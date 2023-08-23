@@ -35,7 +35,8 @@ int main(int argc, char *argv[]) {
             if (value_str != NULL) {
                 int value = atoi(value_str);
                 push_to_stack(&stack, value);
-                printf("Pushing %d to the stack\n", value);
+                printf("%d\n", value);
+		/*pall(stack);*/
             }
 	    else 
 	    {
