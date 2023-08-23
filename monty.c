@@ -6,14 +6,9 @@
 
 int main(int argc, char *argv[])
 {
-	char line[256];
-	unsigned int line_number = 0;
-	char *command;
 	FILE *file;
-	stack_t *current;
 	stack_t *stack = NULL;
-	int value;
-	char *value_str;
+
 
 	if (argc != 2)
 	{
@@ -28,41 +23,14 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	while (fgets(line, sizeof(line), file))
-	{
-		line_number++;
-		command = strtok(line, " \t\n");
-		if (command != NULL && strcmp(command, "push") == 0)
-		{
-			value_str = strtok(NULL, " \t\n");
-			if (value_str != NULL)
-			{
-				value = atoi(value_str);
-				push_to_stack(&stack, value);
-			}
-			else
-			{
-				fprintf(stderr, "L%u: usage: push integer\n", line_number);
-				fclose(file);
-				return (EXIT_FAILURE);
-			}
-		}
-	}
-	fclose(file);
-	current = stack;
-	while (current != NULL)
-	{
-		printf("%d\n", current->n);
-		current = current->next;
-	}
-	current = stack;
+	read_line(file, &stack);
 
-	while (current != NULL)
-	{
-		stack_t *temp = current;
-		current = current->next;
-		free(temp);
-	}
+	fclose(file);
+
+	pall(stack);
+
+	free_stack(stack);
+
 	return (0);
 }
 

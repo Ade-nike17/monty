@@ -33,5 +33,9 @@ typedef struct instruction_s
 
 void push_to_stack(stack_t **stack, int value);
 void pall(stack_t *stack);
+void execute_pint(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
+void read_line(FILE *file, stack_t **stack);
+void execute_pop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
