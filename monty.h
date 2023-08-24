@@ -1,5 +1,9 @@
+#include <stdio.h>
 #ifndef MONTY_H
 #define MONTY_H
+
+#define EXIT_FAILURE 1
+extern int arg;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -31,11 +35,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push_to_stack(stack_t **stack, int value);
-void pall(stack_t *stack);
+/*void push_to_stack(stack_t **stack, int value);*/
+void push_to_stack(stack_t **stack, unsigned int line_number);
+void pall_stack(stack_t **stack, unsigned int line_number);
 void execute_pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void read_line(FILE *file, stack_t **stack);
 void execute_pop(stack_t **stack, unsigned int line_number);
+void pop_from_stack(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

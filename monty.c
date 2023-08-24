@@ -25,7 +25,9 @@ int main(int argc, char *argv[])
 
 	read_line(file, &stack);
 
-	pall(stack);
+	fclose(file);
+
+	/*pall(stack);*/
 
 	free_stack(stack);
 
