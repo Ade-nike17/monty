@@ -43,5 +43,6 @@ void free_stack(stack_t *stack);
 void read_line(FILE *file, stack_t **stack);
 void execute_pop(stack_t **stack, unsigned int line_number);
 void pop_from_stack(stack_t **stack, unsigned int line_number);
+void swap_top_two(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

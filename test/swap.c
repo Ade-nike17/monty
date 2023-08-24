@@ -12,14 +12,16 @@
 void swap_top_two(stack_t **stack, unsigned int line_number)
 {
 
-	stack_t *temp;
-	if (!*stack || !(*stack)->next) {
+	stack_t *first,*second;
+	if (!*stack || !(*stack)->next)
+       	{
         fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
         exit(EXIT_FAILURE);
-    }
-
-     temp = *stack;
-    *stack = (*stack)->next; 
-    temp->next = (*stack)->next;  
-    (*stack)->next = temp;   
+	}
+	first = *stack;
+	second = (*stack)->next;
+	
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 }
