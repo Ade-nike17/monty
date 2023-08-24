@@ -62,8 +62,8 @@ typedef struct interpreterData {
 	char *line;
 } intprt_data;
 
-
 extern intprt_data input;
+
 
 /* prototype functions */
 void push_to_stack(stack_t **stack, unsigned int line_number);

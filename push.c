@@ -4,19 +4,20 @@
 
 /**
  * push_to_stack - inserts value into list
+ *
  * @stack: linked list
- * @value:second parameter
+ * @line_number: second parameter
  */
 
 void push_to_stack(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
-       
+
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Memory allocation failed\n");
-	        exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	if (!input.args || !is_real_int(input.args))

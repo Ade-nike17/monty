@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * interpret_line - function interprets monty codes
+ *
+ * Return: nothing
+ */
+
+
 void interpret_line(void)
 {
 	char buffer[1024];
@@ -10,7 +17,7 @@ void interpret_line(void)
 		fprintf(stderr, "Error: Can't open file %s\n", input.file_name);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	while (fgets(buffer, sizeof(buffer), input.file))
 	{
 		input.line_number++;
@@ -18,7 +25,7 @@ void interpret_line(void)
 
 		input.command = strtok(input.line, " \t\n");
 
-		if (input.command != NULL) 
+		if (input.command != NULL)
 		{
 			input.args = strtok(NULL, " \t\n");
 			read_line();
@@ -42,13 +49,13 @@ int is_real_int(const char *str)
 	size_t i;
 
 	if (!str || *str == '\0')
-		return 0;
-	
+		return (0);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (!isdigit((unsigned char)str[i]))
-			return 0;
+			return (0);
 	}
 
-	return 1;
+	return (1);
 }

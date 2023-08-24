@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	input.file_name = argv[1];
 
 	interpret_line();

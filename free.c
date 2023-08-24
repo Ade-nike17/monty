@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * free_stack - function frees stack
+ *
+ * @stack: pointer to the head of stack
+ * Return: nothing
+ *
+ */
 
 void free_stack(stack_t *stack)
 {
