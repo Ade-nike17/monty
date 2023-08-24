@@ -15,6 +15,8 @@ void read_line(void)
 		{"pint", execute_pint},
 		{"pop",  pop_from_stack},
 		{"swap", swap_top_two},
+		{"add", add_stack},
+		{"nop", nop_stack},
 		{NULL, NULL}
 	};
 
