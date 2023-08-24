@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /**
  * swap_top_two - swaps top two value in the stack

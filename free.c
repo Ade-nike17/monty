@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "monty.h"
 
 
@@ -9,8 +7,8 @@ void free_stack(stack_t *stack)
 
 	while (current != NULL)
 	{
-		stack_t *temp = current;
+		stack = current;
 		current = current->next;
-		free(temp);
+		free(stack);
 	}
 }
