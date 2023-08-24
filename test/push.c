@@ -14,11 +14,6 @@ void push_to_stack(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = malloc(sizeof(stack_t));
 	(void)line_number;
 	
-	/*if (!isdigit(arg) && arg != '-' && arg != '+')
-	{
-	fprintf(stderr, "L%d: usage: push integer\n", line_number);
-	exit(EXIT_FAILURE);
-	}*/
 	if (new_node == NULL)
 	{
 	fprintf(stderr, "Memory allocation failed\n");
