@@ -27,15 +27,18 @@ void read_line(FILE *file, stack_t **stack)
 
 		if (command != NULL) 
 		{
-            int i = 0;
-            while (instructions[i].opcode != NULL) {
+		int i = 0;
+		while (instructions[i].opcode != NULL)
+		{
                 if (strcmp(command, instructions[i].opcode) == 0) 
 		{
                     instructions[i].f(stack, line_number);
-                    break;
+		    break;
+		}
+		i++;
                 }
-                i++;
-            }
+               
+		}
 		/*if (command != NULL && strcmp(command, "push") == 0)
 		{
 			value_str = strtok(NULL, " \t\n");
@@ -61,5 +64,5 @@ void read_line(FILE *file, stack_t **stack)
 		}*/
 	}
 	
-	}
+	
 }
