@@ -25,7 +25,11 @@ int main(int argc, char *argv[])
 
 	read_line(file, &stack);
 
+<<<<<<< HEAD:test/monty.c
 	fclose(file);
+=======
+	pall(stack);
+>>>>>>> 2e8dd36b80d1a88df7fa8b84c6cc6e240502a03c:test2/monty.c
 
 	free_stack(stack);
 

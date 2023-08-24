@@ -8,18 +8,16 @@
  * @value:second parameter
  */
 
-void push_to_stack(stack_t **stack,unsigned int line_number)
+void push_to_stack(stack_t **stack, int value)
 {
-	
 	stack_t *new_node = malloc(sizeof(stack_t));
-	(void)line_number;
 
 	if (new_node == NULL)
 	{
-		fprintf(stderr, "Memory allocation failed\n");
-        exit(EXIT_FAILURE);
+		printf("Memory allocation failed\n");
+		return;
 	}
-	new_node->n = arg;
+	new_node->n = value;
 	new_node->next = *stack;
 	new_node->prev = NULL;
 
