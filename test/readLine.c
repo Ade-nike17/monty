@@ -17,8 +17,9 @@ void read_line(FILE *file, stack_t **stack)
 		 {"push", push_to_stack},
 		 {"pall", pall_stack},
 		 {"pint",execute_pint},
-		 {"pop",  pop_from_stack},
+		 {"pop", pop_from_stack},
 		 {"swap",swap_top_two},
+		 {"add", add},
 		 {NULL, NULL}
 	 };
 
@@ -39,7 +40,7 @@ void read_line(FILE *file, stack_t **stack)
 		{
 			if (value_str != NULL)
 			{
-		    	arg = atoi(value_str);
+		  	  	arg = atoi(value_str);
 			}
                     instructions[i].f(stack, line_number);
 		    break;
