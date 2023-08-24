@@ -23,17 +23,22 @@ void read_line(FILE *file, stack_t **stack)
 	while (fgets(line, sizeof(line), file))
 	{
 		line_number++;
-		value_str = strtok(NULL, " \t\n");
-		/*command = strtok(line, " \t\n");*/
+		
+		command = strtok(line, " \t\n");
 
-		if (value_str != NULL) 
+		if (command != NULL) 
 		{
 		int i = 0;
-		arg = atoi(value_str);
+		value_str = strtok(NULL, " \t\n");
+
 		while (instructions[i].opcode != NULL)
 		{
                 if (strcmp(command, instructions[i].opcode) == 0) 
 		{
+			if (value_str != NULL)
+			{
+		    	arg = atoi(value_str);
+			}
                     instructions[i].f(stack, line_number);
 		    break;
 		}
