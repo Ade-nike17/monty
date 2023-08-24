@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
+#include <ctype.h>
+
 
 /**
  * push_to_stack - inserts value into list
