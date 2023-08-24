@@ -1,6 +1,7 @@
 #include "monty.h"
 
-#define EXIT_FAILURE 1
+/* Initializing interpreterData struct */
+intprt_data input = {0, NULL, NULL, NULL, NULL, NULL, NULL};
 
 
 /**
@@ -12,8 +13,6 @@
  * Return: 0 for success
  */
 
-/* Initializing interpreterData struct */
-intprt_data input = {0, NULL, NULL, NULL, NULL, NULL, NULL};
 
 int main(int argc, char *argv[])
 {

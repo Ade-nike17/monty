@@ -76,6 +76,7 @@ void pop_from_stack(stack_t **stack, unsigned int line_number);
 void swap_top_two(stack_t **stack, unsigned int line_number);
 void add_stack(stack_t **stack, unsigned int line_number);
 void nop_stack(stack_t **stack, unsigned int line_number);
+void sub_stack(stack_t **stack, unsigned int line_number);
 void interpret_line(void);
 int is_real_int(const char *str);
 

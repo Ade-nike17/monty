@@ -17,6 +17,7 @@ void read_line(void)
 		{"swap", swap_top_two},
 		{"add", add_stack},
 		{"nop", nop_stack},
+		{"sub", sub_stack},
 		{NULL, NULL}
 	};
 
