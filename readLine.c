@@ -1,53 +1,34 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "monty.h"
-int arg = 0;
 
-void read_line(FILE *file, stack_t **stack)
+
+void read_line(void)
 {
-	char line[256];
-	unsigned int line_number = 0;
-	char *command;
-	/*int value;*/
-	char *value_str;
+	int i;
 
-	 instruction_t instructions[] = 
-	 {
+	instruction_t instructions[] = 
+	{
 		 {"push", push_to_stack},
 		 {"pall", pall_stack},
+		 {"pint", execute_pint}, 
 		 {"pop",  pop_from_stack},
+		 {"swap", swap_top_two},
 		 {NULL, NULL}
 	 };
 
-	while (fgets(line, sizeof(line), file))
+	i = 0;
+	while (instructions[i].opcode!= NULL)
 	{
-		line_number++;
-		
-		command = strtok(line, " \t\n");
-
-		if (command != NULL) 
+		if (strcmp(input.command, instructions[i].opcode) == 0)
 		{
-		int i = 0;
-		value_str = strtok(NULL, " \t\n");
-
-		while (instructions[i].opcode != NULL)
-		{
-                if (strcmp(command, instructions[i].opcode) == 0) 
-		{
-			if (value_str != NULL)
-			{
-		  	  	arg = atoi(value_str);
-			}
-                    instructions[i].f(stack, line_number);
-		    break;
+			instructions[i].f(&input.stack, input.line_number);
+			return;
+                    
 		}
 		i++;
-                }
-               
-		}
-
 	}
-	
-	
+	fprintf(stderr, "L%u: unknown instruction %s\n", input.line_number, input.command);
+	fclose(input.file);
+	free_stack(input.stack);
+	exit(EXIT_FAILURE);
+		
 }

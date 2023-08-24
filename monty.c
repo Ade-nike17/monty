@@ -1,35 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "monty.h"
-#include <string.h>
+
 #define EXIT_FAILURE 1
+
+/* Initializing interpreterData struct */
+intprt_data input = {0, NULL, NULL, NULL, NULL, NULL, NULL};
+
+/**
+ * main - Entry point
+ *
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 for success
+ */
 
 int main(int argc, char *argv[])
 {
-	FILE *file;
-	stack_t *stack = NULL;
-
-
 	if (argc != 2)
 	{
-		fprintf(stderr, "Usage: %s <int>\n", argv[0]);
-		return (EXIT_FAILURE);
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
+	
+	input.file_name = argv[1];
 
-	file = fopen(argv[1], "r");
-	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
-	}
-
-	read_line(file, &stack);
-
-	fclose(file);
-
-	/*pall(stack);*/
-
-	free_stack(stack);
+	interpret_line();
 
 	return (0);
 }
