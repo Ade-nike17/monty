@@ -3,7 +3,6 @@
 #include "monty.h"
 #include <ctype.h>
 
-
 /**
  * push_to_stack - inserts value into list
  * @stack: linked list
@@ -19,7 +18,7 @@ void push_to_stack(stack_t **stack, unsigned int line_number)
 	{
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	exit(EXIT_FAILURE);
-	}*/	
+	}*/
 	if (new_node == NULL)
 	{
 	fprintf(stderr, "Memory allocation failed\n");
