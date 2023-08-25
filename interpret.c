@@ -10,7 +10,8 @@
 void interpret_line(void)
 {
 	char buffer[1024];
-
+	char *trimmed_line;
+	
 	input.file = fopen(input.file_name, "r");
 	if (input.file == NULL)
 	{
@@ -23,6 +24,16 @@ void interpret_line(void)
 		input.line_number++;
 		input.line = buffer;
 
+		trimmed_line = input.line;
+		while (*trimmed_line == ' ' || *trimmed_line == '\t')
+		{
+			trimmed_line++;
+		}
+		if (*trimmed_line == '\n' || *trimmed_line == '#')
+		{
+			continue;
+		}
+
 		input.command = strtok(input.line, " \t\n");
 
 		if (input.command != NULL)
@@ -30,6 +41,7 @@ void interpret_line(void)
 			input.args = strtok(NULL, " \t\n");
 			read_line();
 		}
+
 	}
 	fclose(input.file);
 	free_stack(input.stack);
