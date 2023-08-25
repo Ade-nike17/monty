@@ -19,6 +19,7 @@ void read_line(void)
 		{"nop", nop_stack},
 		{"sub", sub_stack},
 		{"div", div_stack},
+		{"mul", mul_stack},
 		{NULL, NULL}
 	};
 
