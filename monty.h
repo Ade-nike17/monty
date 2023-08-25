@@ -82,5 +82,6 @@ void mul_stack(stack_t **stack, unsigned int line_number);
 void interpret_line(void);
 int is_real_int(const char *str);
 void mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
