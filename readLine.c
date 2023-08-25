@@ -20,6 +20,7 @@ void read_line(void)
 		{"sub", sub_stack},
 		{"div", div_stack},
 		{"mul", mul_stack},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 
